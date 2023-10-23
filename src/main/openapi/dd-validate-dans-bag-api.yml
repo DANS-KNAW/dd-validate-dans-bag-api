@@ -96,7 +96,7 @@ components:
 
   schemas:
     zipFile:
-      description: the bag packaged as ZIP file. The ZIP file must containt exactly one directory (and not other files) in its root and directory must be the bag to validate.
+      description: the bag packaged as ZIP file. The ZIP file must contain exactly one directory (and not other files) in its root and directory must be the bag to validate.
       type: string
       format: binary
 
@@ -160,7 +160,7 @@ components:
           description: true if the bag was compliant, false otherwise
           type: boolean
         Rule violations:
-          description: list of violations, if isCompliant is true, an emty list
+          description: list of violations, if isCompliant is true, an empty list
           type: array
           items:
             type: object
