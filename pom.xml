@@ -25,14 +25,14 @@
     </parent>
 
     <artifactId>dd-validate-dans-bag-api</artifactId>
-    <version>0.4.1-SNAPSHOT</version>
+    <version>0.5.0</version>
 
     <name>DD Validate DANS Bag API</name>
     <url>https://github.com/DANS-KNAW/dd-validate-dans-bag-api</url>
 
     <scm>
         <developerConnection>scm:git:ssh://github.com/DANS-KNAW/${project.artifactId}</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v0.5.0</tag>
     </scm>
 
     <repositories>
