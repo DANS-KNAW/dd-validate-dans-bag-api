@@ -44,26 +44,16 @@ paths:
                 example: |
                   Validate DANS Bag Running (v${project.version})
 
-  /validate:
+  /validateZip:
     post:
       summary:
-        validates the bag specified or sent in the message body against the
-        DANS BagIt Profile v1 rules. If the request body is NOT a multi-part message
-        but the bag as a ZIP, the DEPOSIT infoPackageType is used
+        Validates the bag specified or sent in the message body against the
+        DANS BagIt Profile v1 rules.
       requestBody:
         content:
-          multipart/form-data:
-            schema:
-              type: object
-              required: [ command ]
-              properties:
-                command:
-                  $ref: '#/components/schemas/validateCommand'
-                zip:
-                  $ref: '#/components/schemas/zipFile'
           application/zip:
             schema:
-              $ref: '#/components/schemas/zipFile'
+              $ref: '#/components/schemas/ZipFile'
       responses:
         200:
           $ref: "#/components/responses/Ok"
@@ -71,6 +61,25 @@ paths:
           $ref: "#/components/responses/BagNotFound"
         500:
           $ref: "#/components/responses/InternalServerError"
+
+  /validateLocalDir:
+    post:
+      summary:
+        Validates the bag specified or sent in the message body against the
+        DANS BagIt Profile v1 rules.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateCommand'
+      responses:
+        200:
+          $ref: "#/components/responses/Ok"
+        400:
+          $ref: "#/components/responses/BagNotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
 
 
 components:
@@ -81,10 +90,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/validateOk"
-        text/plain:
-          schema:
-            $ref: "#/components/schemas/validateOk"
+            $ref: "#/components/schemas/ValidateOk"
 
     InternalServerError:
       description: Internal Server Error.
@@ -95,12 +101,13 @@ components:
         externally located bag).
 
   schemas:
-    zipFile:
-      description: the bag packaged as ZIP file. The ZIP file must contain exactly one directory (and not other files) in its root and directory must be the bag to validate.
+    ZipFile:
+      description: the bag packaged as ZIP file. The ZIP file must contain exactly one directory (and not other files)
+        in its root and directory must be the bag to validate.
       type: string
       format: binary
 
-    validateCommand:
+    ValidateCommand:
       type: object
       description: Information about where to find the bag (in the message body or externally) and
         how to validate it (as DEPOSIT or migration). If bagLocation is not provided, the bag is
@@ -118,7 +125,7 @@ components:
             - MIGRATION
           default: DEPOSIT
 
-    validateOk:
+    ValidateOk:
       type: object
       example:
         bagLocation: /path/to/myBag
