@@ -29,7 +29,7 @@
     <version>1.0.1-SNAPSHOT</version>
 
     <name>DD Validate DANS Bag API</name>
-    <url>https://github.com/DANS-KNAW/dd-validate-dans-bag-api</url>
+    <url>https://dans-knaw.github.io/dd-validate-dans-bag-api</url>
 
     <scm>
         <developerConnection>scm:git:ssh://github.com/DANS-KNAW/${project.artifactId}</developerConnection>
