@@ -32,6 +32,7 @@ info:
 paths:
   /:
     get:
+      operationId: rootGet
       summary: Returns a description of the service.
       responses:
         200:
@@ -46,6 +47,7 @@ paths:
 
   /validateZip:
     post:
+      operationId: validateZipPost
       summary:
         Validates the bag specified or sent in the message body against the
         DANS BagIt Profile v1 rules.
@@ -64,6 +66,7 @@ paths:
 
   /validateLocalDir:
     post:
+      operationId: validateLocalDirPost
       summary:
         Validates the bag specified or sent in the message body against the
         DANS BagIt Profile v1 rules.
