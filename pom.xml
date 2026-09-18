@@ -26,7 +26,7 @@
     </parent>
 
     <artifactId>dd-validate-dans-bag-api</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <name>DD Validate DANS Bag API</name>
     <url>https://dans-knaw.github.io/dd-validate-dans-bag-api</url>
@@ -34,7 +34,7 @@
     <scm>
         <connection>scm:git:https://github.com/DANS-KNAW/dd-validate-dans-bag-api</connection>
         <developerConnection>scm:git:ssh://github.com/DANS-KNAW/dd-validate-dans-bag-api</developerConnection>
-        <tag>v1.0.1</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/DANS-KNAW/dd-validate-dans-bag-api</url>
     </scm>
 
