@@ -38,12 +38,9 @@ paths:
         200:
           description: description of the service
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                description: a plain text, human readable description of the service
-                example: |
-                  Validate DANS Bag Running (v${project.version})
+                $ref: '#/components/schemas/AppInfo'
 
   /validateZip:
     post:
@@ -104,6 +101,13 @@ components:
         externally located bag).
 
   schemas:
+    AppInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
     ZipFile:
       description: the bag packaged as ZIP file. The ZIP file must contain exactly one directory (and not other files)
         in its root and directory must be the bag to validate.
